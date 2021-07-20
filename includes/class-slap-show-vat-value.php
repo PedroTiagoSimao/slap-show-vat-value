@@ -1,4 +1,4 @@
-<?php
+<?php 
 
 class SLAP_VAT_Value {
 
