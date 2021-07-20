@@ -8,7 +8,7 @@ class SLAP_VAT_Value {
 
         function edit_price_display () {
             global $product;
-            $price = $product->price;
+            $price = $product->get_price();
             
             $tax_rates = WC_Tax::get_rates( $product->get_tax_class() );
             if(!empty($tax_rates)) {
@@ -24,6 +24,17 @@ class SLAP_VAT_Value {
                                 ' . $price . '  <span class="single-product-vat">
                                                     (inclui ' . $tax . '€ IVA '.$tax_rate['rate'].'%)
                                                 </span>
+                            </bdi>
+                        </span>
+                    </span>
+                ';
+            } else {
+                echo '
+                    <span class="price">
+                        <span class="woocommerce-Price-amount amount">
+                            <bdi>
+                                <span class="woocommerce-Price-currencySymbol">€</span>
+                                ' . $price . '
                             </bdi>
                         </span>
                     </span>
