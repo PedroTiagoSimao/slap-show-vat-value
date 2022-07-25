@@ -2,14 +2,14 @@
 /**
  * @link              https://slap.pt/
  * @since             1.0.1
- * @package           Vat_Value
+ * @package           SLAP_Vat_Value
  *
- * Plugin Name: SLAP - Mostrar IVA para WooCommerce
- * Plugin URI: https://slap.pt/
- * Description: SLAP - Mostrar IVA para WooCommerce
+ * Plugin Name: SLAP - Show VAT Value
+ * Plugin URI: https://slap.pt/wp-plugins/vat-value
+ * Description: SLAP - Show VAT Value
  * Author: SLAP
  * Author URI: https://slap.pt/
- * Version: 1.0.3
+ * Version: 1.0.4
  */
 
 require_once (dirname(__FILE__) . '/includes/class-slap-show-vat-value.php');

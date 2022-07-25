@@ -27,7 +27,7 @@ class SLAP_VAT_Value {
                                     <span style="opacity: 0.8; text-decoration: line-through">' . $regular_price . '</span>
                                     <span>' . $sale_price .'</span>
                                     <span class="single-product-vat">
-                                                        (inclui ' . $tax . '€ IVA '.$tax_rate['rate'].'%)
+                                                        (' . $tax . '€ IVA '.$tax_rate['rate'].'%)
                                                     </span>
                                 </bdi>
                             </span>
@@ -41,7 +41,7 @@ class SLAP_VAT_Value {
                                     <span class="woocommerce-Price-currencySymbol">€</span>
                                     <span>' . $regular_price . '</span>
                                     <span class="single-product-vat">
-                                                        (inclui ' . $tax . '€ IVA '.$tax_rate['rate'].'%)
+                                                        (' . $tax . '€ IVA '.$tax_rate['rate'].'%)
                                                     </span>
                                 </bdi>
                             </span>
@@ -49,16 +49,29 @@ class SLAP_VAT_Value {
                     ';
                 }
             } else {
-                echo '
-                    <span class="price">
-                        <span class="woocommerce-Price-amount amount">
-                            <bdi>
-                                <span class="woocommerce-Price-currencySymbol">€</span>
-                                ' . $price . '
-                            </bdi>
+                if( $product->is_on_sale() ) {
+                    echo '
+                        <span class="price">
+                            <span class="woocommerce-Price-amount amount">
+                                <bdi>
+                                    <span style="opacity: 0.8; text-decoration: line-through">' . $regular_price . '</span>
+                                    <span>' . $sale_price .'</span>
+                                </bdi>
+                            </span>
                         </span>
-                    </span>
-                ';
+                    ';
+                } else {
+                    echo '
+                        <span class="price">
+                            <span class="woocommerce-Price-amount amount">
+                                <bdi>
+                                    <span class="woocommerce-Price-currencySymbol">€</span>
+                                    <span>' . $regular_price . '</span>
+                                </bdi>
+                            </span>
+                        </span>
+                    ';
+                }
             }
         }
     }
